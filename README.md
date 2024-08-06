@@ -47,7 +47,7 @@ Specifications:
 
 • Asset Name: Keymaker
 
-• Ticker: KEYM
+• Ticker: KEY
 
 • ASICS resistant
 
