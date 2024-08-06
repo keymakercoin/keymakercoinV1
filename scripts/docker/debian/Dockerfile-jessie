@@ -1,0 +1,25 @@
+FROM debian:jessie
+
+#Default branch name develop
+ARG BRANCH_NAME=develop
+#Default
+#ARG REPO_SLUG=keymaker/keymaker
+#ENV REPO_SLUG=${REPO_SLUG}
+#ENV REPO_URL=https://github.com/${REPO_SLUG}
+
+RUN apt-get -qq update && \
+    apt-get -qqy install \
+	git \
+	sudo
+
+#RUN git clone ${REPO_URL} --branch $BRANCH_NAME --single-branch --depth 1 
+
+#COPY keymaker.tar.gz /keymaker.tar.gz
+#RUN tar -xvf /keymaker.tar.gz
+#mkdir keymaker && cd  keymaker
+wget https://github.com/keymakercoin/keymakercoin/releases/download/v1.0.2.9/keymakerd
+
+wget https://raw.githubusercontent.com/keymakercoin/keymakercoin/main/scripts/dependencies-ubuntu.sh && RUN ./dependencies-ubuntu.sh  && \
+	apt-get purge git build-essential -qy && \
+	apt-get autoremove -qy && \
+	apt-get clean

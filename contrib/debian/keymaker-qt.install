@@ -1,0 +1,11 @@
+usr/local/bin/keymaker-qt usr/bin
+share/pixmaps/keymaker16.png usr/share/pixmaps
+share/pixmaps/keymaker32.png usr/share/pixmaps
+share/pixmaps/keymaker128.png usr/share/pixmaps
+share/pixmaps/keymaker256.png usr/share/pixmaps
+share/pixmaps/keymaker-testnet32.png usr/share/pixmaps
+share/pixmaps/keymaker-testnet128.png usr/share/pixmaps
+share/pixmaps/keymaker-testnet256.png usr/share/pixmaps
+debian/keymaker-qt.desktop usr/share/applications
+debian/keymaker-testnet-qt.desktop usr/share/applications
+debian/keymaker-qt.protocol usr/share/kde4/services/

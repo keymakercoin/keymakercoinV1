@@ -1,0 +1,3 @@
+contrib/keymakerd.bash-completion	keymakerd
+contrib/keymaker-cli.bash-completion	keymaker-cli
+contrib/keymaker-tx.bash-completion	keymaker-tx
