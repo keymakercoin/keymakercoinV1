@@ -19,7 +19,7 @@ static const CAmount MIN_TX_FEE = CENT / 10;
 static const CAmount PERKB_TX_FEE = CENT;
 static const CAmount MIN_TXOUT_AMOUNT = CENT;
 static const CAmount MAX_MINT_PROOF_OF_WORK = 9999 * COIN;
-static const std::string CURRENCY_UNIT = "KEYM";
+static const std::string CURRENCY_UNIT = "KEY";
 
 /** No amount larger than this (in satoshi) is valid.
  *
