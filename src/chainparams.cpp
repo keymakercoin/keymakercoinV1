@@ -127,14 +127,15 @@ checkpointData = {
                 {500000, uint256S("0x1dced76d5fb2bb24929984af1b1929b8eeb176d6fde092e5108e942cd898a14d")},
                 {600000, uint256S("0x7ebcfda11a85a9035ec27070f22a2ed5a4feff589dbbaf16f7f54d41f8523fe")},
                 {770801, uint256S("0xfe4ab81368922c47653990d6e73475bd4ecd311619a4c1f6096fdd3de23a0d0d")},
+                {1014993, uint256S("0x52387119107a25c18d1a5f8a68e4c0fcd0e1b94dbb981ce0f528bedccac32e5d")},                
             }
         };
 
         chainTxData = ChainTxData{
 			// Data from rpc: getchaintxstats 0
-			/* nTime    */  1698027505,
-			/* nTxCount */  1210652,
-			/* dTxRate  */  0.0394412687557243
+			/* nTime    */   1707912018,
+			/* nTxCount */  1612398,
+			/* dTxRate  */   0.03973456143103131
         };
     }
 };
