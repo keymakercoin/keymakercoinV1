@@ -64,7 +64,7 @@ public:
 
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000000202d4e99641a682c14ccaf87518f7994a85dadddde5adef06a0aa8b298");
+        consensus.defaultAssumeValid = uint256S("0x19ba26ff2e02db2e218d03a1994fcc28041f0e2f25ef0090ec3173c4d36ab702");
         /**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
@@ -117,19 +117,21 @@ checkpointData = {
                 {143175, uint256S("0xec75c76a8e6c1dd16e42b62246693c508317989fff9ed9dbfaf2bcf0d82610d6")},
                 {248447, uint256S("0x000000202d4e99641a682c14ccaf87518f7994a85dadddde5adef06a0aa8b298")},
                 {300000, uint256S("0x0000000d1a98bfe17bbd68a1c95f6160ec43a9695f0414db12e96707289ea893")},
-             //   {400000, uint256S("0xa4db466781db937347125617d27f17715fd993bb7a5018b0d031c3dcfdaa3adf")},
-             //   {500000, uint256S("0x1dced76d5fb2bb24929984af1b1929b8eeb176d6fde092e5108e942cd898a14d")},
-             //   {600000, uint256S("0x7ebcfda11a85a9035ec27070f22a2ed5a4feff589dbbaf16f7f54d41f8523fe")},
-             //   {770801, uint256S("0xfe4ab81368922c47653990d6e73475bd4ecd311619a4c1f6096fdd3de23a0d0d")},
-             //   {1014993, uint256S("0x52387119107a25c18d1a5f8a68e4c0fcd0e1b94dbb981ce0f528bedccac32e5d")},                
+                {400000, uint256S("0xa4db466781db937347125617d27f17715fd993bb7a5018b0d031c3dcfdaa3adf")},
+                {500000, uint256S("0x1dced76d5fb2bb24929984af1b1929b8eeb176d6fde092e5108e942cd898a14d")},
+                {600000, uint256S("0x7ebcfda11a85a9035ec27070f22a2ed5a4feff589dbbaf16f7f54d41f8523fe")},
+                {770801, uint256S("0xfe4ab81368922c47653990d6e73475bd4ecd311619a4c1f6096fdd3de23a0d0d")},
+                {1014993, uint256S("0x52387119107a25c18d1a5f8a68e4c0fcd0e1b94dbb981ce0f528bedccac32e5d")},
+                {1103348, uint256S("0x19ba26ff2e02db2e218d03a1994fcc28041f0e2f25ef0090ec3173c4d36ab702")},
+                              
             }
         };
 
         chainTxData = ChainTxData{
 			// Data from rpc: getchaintxstats 0
-			/* nTime    */   1707912018,
-			/* nTxCount */  1612398,
-			/* dTxRate  */   0.03973456143103131
+			/* nTime    */   1712052278,
+			/* nTxCount */  1759460,
+			/* dTxRate  */   0.03936432956122325
         };
     }
 };

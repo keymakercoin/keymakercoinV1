@@ -996,7 +996,8 @@ int64_t GetProofOfWorkReward(unsigned int nHeight) {
    if (nHeight == 1) { return 6000000 * COIN; } // Premine
         else if (nHeight > 1 && nHeight <= 525600 )    {return 20 * COIN;}
         else if (nHeight > 525600 && nHeight <= 1051200) {return 16 * COIN;}
-        else if (nHeight > 1051200 && nHeight <= 1576800) {return 13 * COIN;}
+        else if (nHeight > 525600 && nHeight <= 1051200) {return 16 * COIN;}
+        else if (nHeight > 1051200 && nHeight <= 1576800) {return 13 * COIN;} //'1,103,348'
 	    else if (nHeight > 1576800 && nHeight <= 2102400) {return  10.4 * COIN;}
 		else if (nHeight > 2102400 && nHeight <= 2628000) {return  8.4 * COIN;}
 		else if (nHeight > 2628000 && nHeight <= 3153600) {return  6.8 * COIN;}
