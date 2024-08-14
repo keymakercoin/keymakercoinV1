@@ -4549,7 +4549,7 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pin
     double fTxTotal;
 
 
-    if (pindex->nHeight = 1103357) {
+    if (pindex->nHeight == 1103357) {
         return 1;
     } else {
 
@@ -4560,7 +4560,7 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pin
             fTxTotal = pindex->nChainTx + (nNow - pindex->GetBlockTime()) * data.dTxRate;
             return pindex->nChainTx / fTxTotal;
         }
-        
+
     }
 
 }
