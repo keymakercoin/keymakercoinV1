@@ -997,7 +997,9 @@ int64_t GetProofOfWorkReward(unsigned int nHeight) {
         else if (nHeight > 1 && nHeight <= 525600 )    {return 20 * COIN;}
         else if (nHeight > 525600 && nHeight <= 1051200) {return 16 * COIN;}
         else if (nHeight > 525600 && nHeight <= 1051200) {return 16 * COIN;}
-        else if (nHeight > 1051200 && nHeight <= 1576800) {return 13 * COIN;} //'1,103,348'
+        else if (nHeight > 1051200 && nHeight <= 1103350) {return 13 * COIN;} //'1103357'
+        else if (nHeight > 1103350 && nHeight <= 1103357) {return 11 * COIN;} //Fork
+        else if (nHeight > 1103357 && nHeight <= 1576800) {return 13 * COIN;} //'1103357'
 	    else if (nHeight > 1576800 && nHeight <= 2102400) {return  10.4 * COIN;}
 		else if (nHeight > 2102400 && nHeight <= 2628000) {return  8.4 * COIN;}
 		else if (nHeight > 2628000 && nHeight <= 3153600) {return  6.8 * COIN;}
@@ -1041,7 +1043,9 @@ int64_t GetProofOfStakeReward(CAmount nCoinAge, const CBlockIndex* pindex)
 
      if (xHeight <= 525600 )    { nRewardCoinYear = 1.1 * COIN;}    
         else if (xHeight > 525600 && xHeight <= 1051200) { nRewardCoinYear = 1 * COIN;}    
-        else if (xHeight > 1051200 && xHeight <= 1576800) { nRewardCoinYear =  0.9 * COIN;}
+        else if (xHeight > 1051200 && xHeight <= 1103350) { nRewardCoinYear =  0.9 * COIN;} //'1103357'
+        else if (xHeight > 1103350 && xHeight <= 1103357 ) { nRewardCoinYear =  0.89 * COIN;} //'1103357'     
+        else if (xHeight > 1103357 && xHeight <= 1576800) { nRewardCoinYear =  0.9 * COIN;} //'1103357'
 	    else if (xHeight > 1576800 && xHeight <= 2102400) { nRewardCoinYear =  0.8 * COIN;}
 		else if (xHeight > 2102400 && xHeight <= 2628000) { nRewardCoinYear =  0.7 * COIN;}
 		else if (xHeight > 2628000 && xHeight <= 3153600) { nRewardCoinYear =  0.6 * COIN;}
@@ -4544,13 +4548,21 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pin
 
     double fTxTotal;
 
-    if (pindex->nChainTx <= data.nTxCount) {
-        fTxTotal = data.nTxCount + (nNow - data.nTime) * data.dTxRate;
+
+    if (pindex->nHeight = 1103357) {
+        return 1;
     } else {
-        fTxTotal = pindex->nChainTx + (nNow - pindex->GetBlockTime()) * data.dTxRate;
+
+        if (pindex->nChainTx <= data.nTxCount) {
+            fTxTotal = data.nTxCount + (nNow - data.nTime) * data.dTxRate;
+            return pindex->nChainTx / fTxTotal;
+        } else {
+            fTxTotal = pindex->nChainTx + (nNow - pindex->GetBlockTime()) * data.dTxRate;
+            return pindex->nChainTx / fTxTotal;
+        }
+        
     }
 
-    return pindex->nChainTx / fTxTotal;
 }
 
 class HeightEntry {
