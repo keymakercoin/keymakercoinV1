@@ -3823,7 +3823,7 @@ bool PeerLogicValidation::SendMessages(CNode* pto, std::atomic<bool>& interruptM
         if (state.fSyncStarted && state.nHeadersSyncTimeout < std::numeric_limits<int64_t>::max()) {
             // Detect whether this is a stalling initial-headers-sync peer
             
-            if (pindex->nHeight == 1103357) {
+            if (chainActive.Height() == 1103357) {
             // Blockchain Reboot Fork 
             state.nHeadersSyncTimeout = std::numeric_limits<int64_t>::max();
             
