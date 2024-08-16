@@ -3822,7 +3822,12 @@ bool PeerLogicValidation::SendMessages(CNode* pto, std::atomic<bool>& interruptM
         // Check for headers sync timeouts
         if (state.fSyncStarted && state.nHeadersSyncTimeout < std::numeric_limits<int64_t>::max()) {
             // Detect whether this is a stalling initial-headers-sync peer
-            if (pindexBestHeader->GetBlockTime() <= GetAdjustedTime() - 24*60*60) {
+            
+            if (pindex->nHeight == 1103357) {
+            // Blockchain Reboot Fork 
+            state.nHeadersSyncTimeout = std::numeric_limits<int64_t>::max();
+            
+           } elseif (pindexBestHeader->GetBlockTime() <= GetAdjustedTime() - 24*60*60) {
                 if (nNow > state.nHeadersSyncTimeout && nSyncStarted == 1 && (nPreferredDownload - state.fPreferredDownload >= 1)) {
                     // Disconnect a (non-whitelisted) peer if it is our only sync peer,
                     // and we have others we could be using instead.

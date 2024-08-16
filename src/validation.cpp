@@ -4548,7 +4548,7 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pin
 
     double fTxTotal;
 
-
+     // Blockchain Reboot Fork 
     if (pindex->nHeight == 1103357) {
         return 1;
     } else {
