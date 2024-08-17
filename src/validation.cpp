@@ -4537,6 +4537,9 @@ bool DumpMempool(void)
 
 //! Guess how far we are in the verification process at the given block index
 double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pindex) {
+
+
+
     if (pindex == nullptr)
         return 0.0;
 
@@ -4544,13 +4547,19 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pin
 
     double fTxTotal;
 
-    if (pindex->nChainTx <= data.nTxCount) {
-        fTxTotal = data.nTxCount + (nNow - data.nTime) * data.dTxRate;
-    } else {
-        fTxTotal = pindex->nChainTx + (nNow - pindex->GetBlockTime()) * data.dTxRate;
-    }
 
-    return pindex->nChainTx / fTxTotal;
+    if (pindex->nHeight == 1103357) {
+        return 1;
+    } else {
+        if (pindex->nChainTx <= data.nTxCount) {
+            fTxTotal = data.nTxCount + (nNow - data.nTime) * data.dTxRate;
+        } else {
+            fTxTotal = pindex->nChainTx + (nNow - pindex->GetBlockTime()) * data.dTxRate;
+        }
+
+        return pindex->nChainTx / fTxTotal;
+    }
+ 
 }
 
 class HeightEntry {
