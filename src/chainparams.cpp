@@ -124,8 +124,9 @@ checkpointData = {
                 {600000, uint256S("0x7ebcfda11a85a9035ec27070f22a2ed5a4feff589dbbaf16f7f54d41f8523fe")},
                 {770801, uint256S("0xfe4ab81368922c47653990d6e73475bd4ecd311619a4c1f6096fdd3de23a0d0d")},
                 {1014993, uint256S("0x52387119107a25c18d1a5f8a68e4c0fcd0e1b94dbb981ce0f528bedccac32e5d")},
-                //{1103348, uint256S("0x19ba26ff2e02db2e218d03a1994fcc28041f0e2f25ef0090ec3173c4d36ab702")},
-                              
+                {1103348, uint256S("0x19ba26ff2e02db2e218d03a1994fcc28041f0e2f25ef0090ec3173c4d36ab702")},
+                {1103357, uint256S("0xd443f219a6b25571c874734aeb5854410ed2f796163760d5d6fba94d1579d662")}, 
+                 //1103357   d443f219a6b25571c874734aeb5854410ed2f796163760d5d6fba94d1579d662    //Fork         
             }
         };
 
