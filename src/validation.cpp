@@ -4546,11 +4546,7 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pin
     int64_t nNow = time(nullptr);
 
     double fTxTotal;
-
-
-    if (pindex->nHeight == 1103357) {
-        return 1;
-    } else {
+ 
         if (pindex->nChainTx <= data.nTxCount) {
             fTxTotal = data.nTxCount + (nNow - data.nTime) * data.dTxRate;
         } else {
@@ -4558,8 +4554,7 @@ double GuessVerificationProgress(const ChainTxData& data, const CBlockIndex *pin
         }
 
         return pindex->nChainTx / fTxTotal;
-    }
- 
+   
 }
 
 class HeightEntry {
