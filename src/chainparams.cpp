@@ -29,6 +29,7 @@
  * + Contains no strange transactions
  */
 
+/**
 bool CChainParams::AddCheckPoint(const int &height, const uint256 &hash) const{
 
     auto it = std::find_if(checkpointData.mapCheckpoints.begin(), checkpointData.mapCheckpoints.end(),
@@ -39,7 +40,7 @@ bool CChainParams::AddCheckPoint(const int &height, const uint256 &hash) const{
     return true;
 }
 
-
+ */
 
 const CScript CChainParams::GetMinerScriptPubKey() const {
     return GetScriptForDestination(CBitcoinAddress(consensus.minerAddress).Get());

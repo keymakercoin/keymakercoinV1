@@ -28,6 +28,7 @@ namespace Checkpoints {
         return nullptr;
     }
 
+/**
     bool LoadCheckpoints() {
         Checkpoints::CDynamicCheckpointDB cCheckPointDB;
         std::map<int, Checkpoints::CDynamicCheckpointData> values;
@@ -42,7 +43,7 @@ namespace Checkpoints {
         }
         return true;
     }
-
+ */
 
 
 
