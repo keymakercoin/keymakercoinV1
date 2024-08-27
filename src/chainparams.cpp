@@ -57,8 +57,8 @@ public:
 
 	    consensus.powForkTime = 1670094000;  // Sat Dec 03 2022 19:00:00 GMT+0000    Sat Dec 03 2022 13:00:00 GMT-0600 (Central Standard Time)
         // hard fork
-        consensus.KBCHeight =  1103357 ;
-		KB_FORK_BLOCK_NUM = consensus.KBCHeight;
+        consensus.KMCHeight =  1103357 ;
+		KM_FORK_BLOCK_NUM = consensus.KMCHeight;
 
 
 
