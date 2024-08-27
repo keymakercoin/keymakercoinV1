@@ -9,6 +9,34 @@
 #include <stdlib.h>
 #include <stdint.h>
 
+
+//extern uint64_t UB_FORK2_BLOCK_NUM;
+//extern uint64_t UB_FORK1_BLOCK_NUM;
+extern uint64_t KM_FORK_BLOCK_NUM;
+//extern int COINBASE_MATURITY_FORKV1;
+//extern int COINBASE_MATURITY_FORKV2;
+
+inline unsigned int MaxBlockSize(uint64_t nblock) {
+    if (nblock < KM_FORK_BLOCK_NUM)
+        return 4000*1000;
+
+    return (32*1000*1000);
+}
+//static const unsigned int MAX_TRANSACTION_SIZE = 1000*1000;
+inline unsigned int MaxBlockSigops(uint64_t nblock) {
+    return MaxBlockSize(nblock) / 50;
+}
+
+inline unsigned int MaxBlockSerializedSize(uint64_t nblock){
+    if (nblock < KM_FORK_BLOCK_NUM)
+        return 4000*1000;
+
+    return (32*1000*1000);
+}
+
+
+
+
 /** The maximum allowed size for a serialized block, in bytes (only for buffer size limits) */
 static const unsigned int MAX_BLOCK_SERIALIZED_SIZE = 4000000;
 /** The maximum allowed weight for a block, see BIP 141 (network rule) */

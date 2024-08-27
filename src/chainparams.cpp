@@ -29,6 +29,10 @@
  * + Contains no strange transactions
  */
 
+
+uint64_t KM_FORK_BLOCK_NUM = 1103357;
+
+
 class CMainParams : public CChainParams {
 public:
     CMainParams() {
@@ -52,7 +56,12 @@ public:
 	    consensus.nPowTargetSpacingGR = 125; //691.2 blocks 60%
 
 	    consensus.powForkTime = 1670094000;  // Sat Dec 03 2022 19:00:00 GMT+0000    Sat Dec 03 2022 13:00:00 GMT-0600 (Central Standard Time)
-       
+        // hard fork
+        consensus.KBCHeight =  1103357 ;
+		KB_FORK_BLOCK_NUM = consensus.KBCHeight;
+
+
+
         consensus.powTypeLimits.emplace_back(uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // curvehash limit
         consensus.powTypeLimits.emplace_back(uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // Minox limit
 
