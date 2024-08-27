@@ -28,6 +28,24 @@ namespace Checkpoints {
         return nullptr;
     }
 
+    bool LoadCheckpoints() {
+        Checkpoints::CDynamicCheckpointDB cCheckPointDB;
+        std::map<int, Checkpoints::CDynamicCheckpointData> values;
+
+        if (cCheckPointDB.LoadCheckPoint(values)) {
+            std::map<int, Checkpoints::CDynamicCheckpointData>::iterator it = values.begin();
+            while (it != values.end()) {
+                Checkpoints::CDynamicCheckpointData data = it->second;
+                Params().AddCheckPoint(data.GetHeight(), data.GetHash());
+                it++;
+            }
+        }
+        return true;
+    }
+
+
+
+
     uint256 GetLatestHardenedCheckpoint()
     {
         const MapCheckpoints& checkpoints = Params().Checkpoints().mapCheckpoints;
