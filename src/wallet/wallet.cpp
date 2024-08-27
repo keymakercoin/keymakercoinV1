@@ -1014,6 +1014,16 @@ bool CWallet::AddToWalletIfInvolvingMe(const CTransactionRef& ptx, const CBlockI
     {
         AssertLockHeld(cs_wallet);
 
+
+
+        if(NULL != pIndex && Params().IsKMForkHeight(pIndex->nHeight)) {
+            for (std::map<uint256, CWalletTx>::iterator it = mapWallet.begin(); it != mapWallet.end(); ++it)
+            {
+                CWalletTx* pcoin = &(*it).second;
+                pcoin->MarkDirty();
+            }
+        }
+
         if (pIndex != nullptr) {
             for (const CTxIn& txin : tx.vin) {
                 std::pair<TxSpends::const_iterator, TxSpends::const_iterator> range = mapTxSpends.equal_range(txin.prevout);
@@ -1259,6 +1269,18 @@ void CWallet::BlockDisconnected(const std::shared_ptr<const CBlock>& pblock) {
     for (const CTransactionRef& ptx : pblock->vtx) {
         SyncTransaction(ptx);
     }
+    BlockMap::iterator it = mapBlockIndex.find(pblock->GetHash());
+    if(it != mapBlockIndex.end() && Params().IsKMForkHeight(it->second->nHeight)) {
+        for (std::map<uint256, CWalletTx>::iterator it = mapWallet.begin(); it != mapWallet.end(); ++it)
+        {
+            CWalletTx* pcoin = &(*it).second;
+            pcoin->MarkDirty();
+        }
+    }
+
+
+
+
 }
 
 

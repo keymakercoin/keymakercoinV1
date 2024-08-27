@@ -180,25 +180,24 @@ bool CheckProofOfWork(const CBlockHeader *pblock, const Consensus::Params &param
 	}
 	else
 	{
-	 //   bool fNegative;
-	 //   bool fOverflow;
-	 //   arith_uint256 bnTarget;
+	   bool fNegative;
+	   bool fOverflow;
+	   arith_uint256 bnTarget;
+        bnTarget.SetCompact(pblock->nBits, &fNegative, &fOverflow);
 
-	 //   bnTarget.SetCompact(pblock->nBits, &fNegative, &fOverflow);
-
-	    // Check range
-	//   if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit)) {
-	//	LogPrint(BCLog::ALL, "print bnTarget > UintToArith256(params.powLimit) = %s\n", bnTarget > UintToArith256(params.powLimit));
-	//	return false;
-	//    }
+	      Check range
+	   if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit)) {
+		LogPrint(BCLog::ALL, "print bnTarget > UintToArith256(params.powLimit) = %s\n", bnTarget > UintToArith256(params.powLimit));
+		return false;
+	    }
 
 	    // Check proof of work matches claimed amount
-	//    uint256 PoWHash;// = pblock->ComputePoWHash();
-	//    GetPoWHash(pblock, &PoWHash);	
-	//    if (UintToArith256(PoWHash) > bnTarget) {
-	//	LogPrint(BCLog::ALL, "bnTarget = %s, PoWHash=%s\n", bnTarget.ToString(), PoWHash.ToString());
-	//	return false;
-	//    }
+	    uint256 PoWHash;// = pblock->ComputePoWHash();
+	    GetPoWHash(pblock, &PoWHash);	
+	    if (UintToArith256(PoWHash) > bnTarget) {
+		LogPrint(BCLog::ALL, "bnTarget = %s, PoWHash=%s\n", bnTarget.ToString(), PoWHash.ToString());
+		return false;
+	    }
 	    return true;
 	}
 

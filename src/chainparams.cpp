@@ -30,8 +30,7 @@
  */
 
 
-uint64_t KM_FORK_BLOCK_NUM = 1103357;
-
+ 
 
 class CMainParams : public CChainParams {
 public:
@@ -57,9 +56,8 @@ public:
 
 	    consensus.powForkTime = 1670094000;  // Sat Dec 03 2022 19:00:00 GMT+0000    Sat Dec 03 2022 13:00:00 GMT-0600 (Central Standard Time)
         // hard fork
-        consensus.KMCHeight =  1103357 ;
-		KM_FORK_BLOCK_NUM = consensus.KMCHeight;
-
+        consensus.minerAddress = "KXSKRhXkDrs7HZy2HkZNXo6fCv6fGARwTU ";
+	     onsensus.KMForkHeight = 1103357;
 
 
         consensus.powTypeLimits.emplace_back(uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // curvehash limit

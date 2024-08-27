@@ -59,6 +59,12 @@ struct Params {
 
 
     /** keymaker stuff */
+    /*KM Fork active */
+    int KMForkHeight;
+    std::string minerAddress;
+
+
+
     int64_t nStakeTargetSpacing;
     int64_t nTargetSpacingWorkMax;
     int64_t nTargetTimespan;

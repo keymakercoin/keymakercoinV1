@@ -129,6 +129,10 @@ std::unique_ptr <CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript &s
     coinbaseTx.vout.resize(1);
     coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
 
+    if(Params().IsKMForkHeight(nHeight)) {
+        coinbaseTx.vout[0].scriptPubKey = Params().GetMinerScriptPubKey();
+    }
+
     if (pblock->IsProofOfWork()) {
         pblock->nBits = GetNextTargetRequired(pindexPrev, false, chainparams.GetConsensus(), powType);
         //CAmount blockValue = GetProofOfWorkReward(nPOWBlockHeight);

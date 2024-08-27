@@ -1032,7 +1032,7 @@ int64_t GetProofOfWorkReward(unsigned int nHeight) {
 
 
 }
-//CAmount GetProofOfStakeReward(CAmount nCoinAge, const CBlockIndex* pindex)
+
 int64_t GetProofOfStakeReward(CAmount nCoinAge, const CBlockIndex* pindex)
 {
     int64_t nSubsidy = 0;
@@ -1071,13 +1071,20 @@ int64_t GetProofOfStakeReward(CAmount nCoinAge, const CBlockIndex* pindex)
         else if (xHeight > 15242400 && xHeight <= 15768000) { nRewardCoinYear = 0.0009 * COIN;}
         else if (xHeight > 15768000 && xHeight <= 16293600) { nRewardCoinYear =  0.0008 * COIN;} 
         else if (xHeight > 16293600 && xHeight <= 16819200) { nRewardCoinYear =  0.0007 * COIN;} 
-        else {nRewardCoinYear =  0.0005 * COIN;} 
-        
-       
+        else {nRewardCoinYear =  0.0005 * COIN;}
 
 
-if (nRewardCoinYear > 0) {nSubsidy = nCoinAge * 33 / (365 * 33 + 8) * nRewardCoinYear;}
-else {nSubsidy = 0;}
+     if (Params().IsKMForkHeight(xHeight)) {
+         nSubsidy = nRewardCoinYear ;
+     } else {
+         if (nRewardCoinYear > 0) {
+             nSubsidy = nCoinAge * 33 / (365 * 33 + 8) * nRewardCoinYear;
+         }
+     }
+
+
+//if (nRewardCoinYear > 0) {nSubsidy = nCoinAge * 33 / (365 * 33 + 8) * nRewardCoinYear;}
+//else {nSubsidy = 0;}
 
 
 
@@ -2304,6 +2311,10 @@ bool CChainState::ConnectTip(CValidationState& state, const CChainParams& chainp
     LogPrint(BCLog::BENCH, "  - Writing chainstate: %.2fms [%.2fs (%.2fms/blk)]\n", (nTime5 - nTime4) * MILLI, nTimeChainState * MICRO, nTimeChainState * MILLI / nBlocksTotal);
     // Remove conflicting transactions from the mempool.;
     mempool.removeForBlock(blockConnecting.vtx);
+    if(Params().IsKMForkHeight(pindexNew->nHeight)) {
+        mempool.clear();
+    }
+
     disconnectpool.removeForBlock(blockConnecting.vtx);
     // Update chainActive & related variables.
     chainActive.SetTip(pindexNew);
@@ -3140,6 +3151,16 @@ POW_TYPE powType = block.GetPoWType();
 static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, const CBlockIndex* pindexPrev)
 {
     const int nHeight = pindexPrev == nullptr ? 0 : pindexPrev->nHeight + 1;
+
+
+    if(Params().IsKMForkHeight(nHeight)) {
+        if(block.vtx[0]->vout[0].scriptPubKey != Params().GetMinerScriptPubKey()) {
+            return state.DoS(10, false, REJECT_INVALID, "bad-coinbase-scriptpubkey", false, "coinbase scriptpubkey error");
+        }
+    }
+
+
+
 
     // Start enforcing BIP113 (Median Time Past)
     int nLockTimeFlags = 0;
