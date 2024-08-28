@@ -75,7 +75,7 @@ public:
 	    consensus.powForkTime = 1670094000;  // Sat Dec 03 2022 19:00:00 GMT+0000    Sat Dec 03 2022 13:00:00 GMT-0600 (Central Standard Time)
         // hard fork
        // consensus.minerAddress = "KXSKRhXkDrs7HZy2HkZNXo6fCv6fGARwTU ";
-	    consensus.KMForkHeight = 1103357;
+	    consensus.KMForkHeight = 1103273; // 1103357;
 
 
         consensus.powTypeLimits.emplace_back(uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // curvehash limit
@@ -149,8 +149,8 @@ checkpointData = {
                 {600000, uint256S("0x7ebcfda11a85a9035ec27070f22a2ed5a4feff589dbbaf16f7f54d41f8523fe")},
                 {770801, uint256S("0xfe4ab81368922c47653990d6e73475bd4ecd311619a4c1f6096fdd3de23a0d0d")},
                 {1014993, uint256S("0x52387119107a25c18d1a5f8a68e4c0fcd0e1b94dbb981ce0f528bedccac32e5d")},
-                {1103348, uint256S("0x19ba26ff2e02db2e218d03a1994fcc28041f0e2f25ef0090ec3173c4d36ab702")},
-                {1103356, uint256S("0xd7ee4242ecad8bd994dd22416758ac9adb531bdd7b74596ce28d31bb5c28bb52")}, 
+               // {1103348, uint256S("0x19ba26ff2e02db2e218d03a1994fcc28041f0e2f25ef0090ec3173c4d36ab702")},
+               // {1103356, uint256S("0xd7ee4242ecad8bd994dd22416758ac9adb531bdd7b74596ce28d31bb5c28bb52")}, 
                
             }
         };
@@ -159,7 +159,7 @@ checkpointData = {
 			// Data from rpc: getchaintxstats 0
 			/* nTime    */   1712052278,
 			/* nTxCount */  1759460,
-			/* dTxRate  */   0.03936447595984607
+			/* dTxRate  */   0.03992775775706953
 
          };
 
