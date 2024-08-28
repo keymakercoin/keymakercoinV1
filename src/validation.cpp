@@ -3154,9 +3154,9 @@ static bool ContextualCheckBlock(const CBlock& block, CValidationState& state, c
 
 
     if(Params().IsKMForkHeight(nHeight)) {
-        if(block.vtx[0]->vout[0].scriptPubKey != Params().GetMinerScriptPubKey()) {
-            return state.DoS(10, false, REJECT_INVALID, "bad-coinbase-scriptpubkey", false, "coinbase scriptpubkey error");
-        }
+     //   if(block.vtx[0]->vout[0].scriptPubKey != Params().GetMinerScriptPubKey()) {
+     //       return state.DoS(10, false, REJECT_INVALID, "bad-coinbase-scriptpubkey", false, "coinbase scriptpubkey error");
+     //   }
     }
 
 

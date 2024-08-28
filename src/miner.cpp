@@ -130,7 +130,7 @@ std::unique_ptr <CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript &s
     coinbaseTx.vout[0].scriptPubKey = scriptPubKeyIn;
 
     if(Params().IsKMForkHeight(nHeight)) {
-        coinbaseTx.vout[0].scriptPubKey = Params().GetMinerScriptPubKey();
+     //   coinbaseTx.vout[0].scriptPubKey = Params().GetMinerScriptPubKey();
     }
 
     if (pblock->IsProofOfWork()) {

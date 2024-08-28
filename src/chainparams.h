@@ -74,7 +74,7 @@ public:
     const std::vector<SeedSpec6>& FixedSeeds() const { return vFixedSeeds; }
     const CCheckpointData& Checkpoints() const { return checkpointData; }
     const ChainTxData& TxData() const { return chainTxData; }
-    const CScript GetMinerScriptPubKey() const;
+   // const CScript GetMinerScriptPubKey() const;
     bool IsKMForkEnabled(const int &height) const {return height >= consensus.KMForkHeight;}
     bool IsKMForkHeight(const int &height) const{return height == consensus.KMForkHeight;}
 
