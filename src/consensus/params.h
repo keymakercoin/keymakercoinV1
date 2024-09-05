@@ -53,6 +53,8 @@ struct Params {
     //int64_t diffRetargetTake2;
     uint32_t powForkTime;
     uint32_t isValid;
+
+   
     //int64_t lwmaAveragingWindow;        // Averaging window size for LWMA diff adjust
     std::vector<uint256> powTypeLimits; // Limits for each pow type (with future-proofing space; can't pick up NUM_BLOCK_TYPES here)
 

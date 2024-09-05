@@ -149,7 +149,8 @@ unsigned int GetNextTargetRequired(const CBlockIndex *pindexLast, bool fProofOfS
 
 bool CheckProofOfWork(const CBlockHeader *pblock, const Consensus::Params &params) {
 
-	if (pblock->GetBlockTime() > params.powForkTime) {
+	
+ if (pblock->GetBlockTime() > params.powForkTime) {
 
 		bool fNegative;
 		bool fOverflow;

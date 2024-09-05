@@ -1657,6 +1657,8 @@ bool IsMinoEnabled(const CBlockIndex* pindexPrev, const Consensus::Params& param
     }
 }
 
+ 
+
 
 static int64_t nTimeCheck = 0;
 static int64_t nTimeForks = 0;

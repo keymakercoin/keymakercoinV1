@@ -164,7 +164,7 @@ public:
 
 	   consensus.powForkTime = 1670097600; // 12-3-2022 13:00
 
-	   //consensus.isValid = 1666327253;
+ 
 
         consensus.powTypeLimits.emplace_back(uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // curvehash limit
         consensus.powTypeLimits.emplace_back(uint256S("000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // Minox limit
@@ -182,7 +182,7 @@ public:
         pchMessageStart[0] = 0xf4;
         pchMessageStart[1] = 0x11;
         pchMessageStart[2] = 0xf3;
-        pchMessageStart[3] = 0xbe;
+        pchMessageStart[3] = 0xb3;
         nDefaultPort = 22421;
         vAlertPubKey = ParseHex("048ce4dedd28c868cb39555c94575e92bdd8feba3407eb1f1d4910a01274366e00cf25e6396b7b9e3f12f6bbc0aa6c3530178e91c181c4506bbfcf33e359004b22");
 
